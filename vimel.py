@@ -8,10 +8,10 @@ print ("You have stolen a Vimel to make your way across the desert.")
 print ("The natives want their Vimel back and are chasing you down! \n Survive the desert treck and outrun the natives.")
 
 distance_traveled = 0 # distance the player traveled in kilometers (standard: 0)
-thirst = 0 # how thirsty the player is from 0 to 100. 100 = game over (standard: 0)
-camel_tiredness = 0 # how tired the camel is from 0 to 100. 100 =  camel dies, game over (standard: 0)
+thirst = 0 # how thirsty the player is from 0 to 7. 7 = game over (standard: 0)
+camel_tiredness = 0 # how tired the camel is from 0 to 9. 9 =  camel dies, game over (standard: 0)
 natives = -20 # distance the natives have traveled in kilometers (standard: -20)
-canteen = 3 # number of times player can drind from canteen (standard: 5)
+canteen = 3 # number of times player can drink from canteen (standard: 3)
 
 while not done: # Main loop
     
@@ -24,7 +24,8 @@ while not done: # Main loop
     
     choice = str(input("Your choice: "))
     
-    #Keyboard checks
+#----------------Input checks--------------------
+
     if choice.lower() == "q" : # Q: Quit the game
         done = True 
         print ()
@@ -45,7 +46,7 @@ while not done: # Main loop
             canteen -= 1
             thirst = 0            
         else:
-            print ("You wanted to take a drink from your canteen, but found it empty. You better find a oasis to refill your canteen at.")
+            print ("You wanted to take a drink from your canteen, but found it empty. You better find an oasis to refill your canteen at.")
         print ()
         
     elif choice.lower() == "b" : # B: Ahead at moderate speed
@@ -95,17 +96,17 @@ while not done: # Main loop
             print ()        
         
         
-    elif choice.lower() == "d": # Stop for the night
+    elif choice.lower() == "d": # D: Stop for the night
         print ()
         
         camel_tiredness = 0
         natives += random.randrange(7,15)
         
-        print ("Your camel had a good sleep and is happy.")
+        print ("Your vimel had a good sleep and is happy.")
         
         print ()
         
-    elif choice.lower() == "e": # Status check
+    elif choice.lower() == "e": # E: Status check
         print ()
         
         print ("Kilometers traveled:", distance_traveled)
@@ -130,14 +131,15 @@ while not done: # Main loop
         print ()
         
     
-    # Game condition checks
+#------------------Game condition checks-----------------------
+
     # Check for player thirst
     if thirst > 3 and  thirst < 6: # Standard thirst message
         print ("You are thirsty.")    
         print ()
         
     elif thirst == 6: # When the player is about to die warn them
-        print ("You have to drink. If you don't you're going to die soon.")
+        print ("You have to drink! If you don't you're going to die soon!")
         print ()
         
     elif thirst > 6: # Player dies of thirst
@@ -147,11 +149,11 @@ while not done: # Main loop
         
     # Check for camel tiredness    
     if camel_tiredness > 5 and camel_tiredness <= 8 and not done: # Standard camel tired message
-        print ("Your camel is getting tired.")
+        print ("Your vimel is getting tired.")
         print ()
         
     elif camel_tiredness > 8 and not done: # Camel dies
-        print ("Your camel is dead.")
+        print ("Your vimel is dead.")
         print ("GAME OVER")
         done = True
         
