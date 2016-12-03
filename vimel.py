@@ -66,7 +66,7 @@ while not done: # Main loop
             print ("You drink, fill up your canteen and your Vimel rests.")
             thirst = 0
             camel_tiredness = 0
-            canteen = 5
+            canteen = 3
             print ()
             
         else:
@@ -89,7 +89,7 @@ while not done: # Main loop
             print ("You drink, fill up your canteen and your camel rests.")
             thirst = 0
             camel_tiredness = 0
-            canteen = 5
+            canteen = 3
             print ()
             
         else:
